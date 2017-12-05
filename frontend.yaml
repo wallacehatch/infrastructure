@@ -1,0 +1,34 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: client-app
+    spec:
+      containers:
+      - name: client-container
+        image: 896897385194.dkr.ecr.us-east-2.amazonaws.com/client-production:latest
+        ports:
+        - name: client-port
+          containerPort: 5000
+
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-service
+spec:
+  selector:
+    app: client-app
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: client-port
+  type: NodePort
