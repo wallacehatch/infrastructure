@@ -21,7 +21,6 @@ spec:
         backend:
             serviceName: frontend-service
             servicePort: 80
-
   - host: api.wallacehatch.com
     http:
       paths:
