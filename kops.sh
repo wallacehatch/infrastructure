@@ -8,7 +8,7 @@ kops create cluster \
     --zones=us-east-1a\
     --master-zones=us-east-1a \
     --dns-zone=kops.wallacehatch.com \
-    --node-size=t2.micro \
+    --node-size=t2.small \
     --master-size=t2.small \
     --topology=private \
     --networking=calico \
