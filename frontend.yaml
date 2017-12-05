@@ -1,19 +1,19 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: client-deployment
+  name: frontend-deployment
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: client-app
+        app: frontend-app
     spec:
       containers:
-      - name: client-container
-        image: 896897385194.dkr.ecr.us-east-2.amazonaws.com/client-production:latest
+      - name: frontend-container
+        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-frontend:latest
         ports:
-        - name: client-port
+        - name: frontend-port
           containerPort: 5000
 
 
@@ -22,13 +22,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: client-service
+  name: frontend-service
 spec:
   selector:
-    app: client-app
+    app: frontend-app
   ports:
     - name: http
       protocol: TCP
       port: 80
-      targetPort: client-port
+      targetPort: frontend-port
   type: NodePort

@@ -9,9 +9,10 @@ kops create cluster \
     --master-zones=us-east-1a \
     --dns-zone=kops.wallacehatch.com \
     --node-size=t2.micro \
-    --master-size=t2.micro \
+    --master-size=t2.small \
     --topology=private \
     --networking=calico \
+    --bastion \
     --name=${NAME}
 
 kops edit cluster ${NAME}

@@ -7,25 +7,25 @@ metadata:
     kubernetes.io/ingress.class: "traefik"
 spec:
   rules:
-  - host: askvest.com
+  - host: wallacehatch.com
     http:
       paths:
       - path: /
         backend:
-            serviceName: client-service
+            serviceName: frontend-service
             servicePort: 80
-  - host: www.askvest.com
+  - host: www.wallacehatch.com
     http:
       paths:
       - path: /
         backend:
-            serviceName: client-service
+            serviceName: frontend-service
             servicePort: 80
 
-  - host: api-staging.askvest.com
+  - host: api.wallacehatch.com
     http:
       paths:
       - path: /
         backend:
-            serviceName: api-service
+            serviceName: backend-service
             servicePort: 80
