@@ -8,11 +8,10 @@ kops create cluster \
     --zones=us-east-1a\
     --master-zones=us-east-1a \
     --dns-zone=kops.wallacehatch.com \
-    --node-size=t2.small \
-    --master-size=t2.small \
+    --node-size=t2.micro \
+    --master-size=t2.micro \
     --topology=private \
     --networking=calico \
-    --bastion \
     --name=${NAME}
 
 kops edit cluster ${NAME}
@@ -24,7 +23,7 @@ kops update cluster ${NAME} --yes
 # kubectl get pods
 
 
-# kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
 
 # kubectl proxy --port=8080
 

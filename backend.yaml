@@ -15,6 +15,32 @@ spec:
         ports: 
         - name: backend-port
           containerPort: 8090
+        env: 
+          - name: MAILCHIMP_API
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: MAILCHIMP_API
+          - name: STRIPE_KEY
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: STRIPE_KEY
+          - name: STRIPE_WEBHOOK_SIG
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: STRIPE_WEBHOOK_SIG
+          - name: MAILGUN_API_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: MAILGUN_API_SECRET_KEY
+          - name: MAILGUN_API_PUBlIC_KEY
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: MAILGUN_API_PUBlIC_KEY
 ---
 
 
