@@ -7,24 +7,38 @@ metadata:
     kubernetes.io/ingress.class: "traefik"
 spec:
   rules:
-  - host: wallacehatch.com
-    http:
-      paths:
-      - path: /
-        backend:
-            serviceName: frontend-service
-            servicePort: 80
-  - host: www.wallacehatch.com
-    http:
-      paths:
-      - path: /
-        backend:
-            serviceName: frontend-service
-            servicePort: 80
+  # - host: wallacehatch.com
+  #   http:
+  #     paths:
+  #     - path: /
+  #       backend:
+  #           serviceName: frontend-service
+  #           servicePort: 80
+  # - host: www.wallacehatch.com
+  #   http:
+  #     paths:
+  #     - path: /
+  #       backend:
+  #           serviceName: frontend-service
+  #           servicePort: 80
   - host: api.wallacehatch.com
     http:
       paths:
       - path: /
         backend:
             serviceName: backend-service
+            servicePort: 80
+  - host: api-staging.wallacehatch.com
+    http:
+      paths:
+      - path: /
+        backend:
+            serviceName: backend-service-staging
+            servicePort: 80
+  - host: staging.wallacehatch.com
+    http:
+      paths:
+      - path: /
+        backend:
+            serviceName: frontend-service
             servicePort: 80

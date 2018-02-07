@@ -1,17 +1,17 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: frontend-deployment
+  name: frontend-deployment-staging
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: frontend-app
+        app: frontend-app-staging
     spec:
       containers:
-      - name: frontend-container
-        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-frontend:latest
+      - name: frontend-container-staging
+        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-frontend-staging:V_11
         ports:
         - name: frontend-port
           containerPort: 5000
@@ -24,10 +24,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-service
+  name: frontend-service-staging
 spec:
   selector:
-    app: frontend-app
+    app: frontend-app-staging
   ports:
     - name: http
       protocol: TCP

@@ -1,17 +1,17 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: backend-deployment
+  name: backend-deployment-staging
 spec:
   replicas: 1
   template: 
     metadata:
       labels:
-        app: backend
+        app: backend-staging
     spec: 
       containers:
-      - name: backend-container
-        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-backend:latest
+      - name: backend-container-staging
+        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-backend-staging:V_24
         ports: 
         - name: backend-port
           containerPort: 8090
@@ -28,7 +28,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: secrets
-                key: STRIPE_LIVE_KEY
+                key: STRIPE_TEST_KEY
           - name: STRIPE_WEBHOOK_SIG
             valueFrom:
               secretKeyRef:
@@ -50,10 +50,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-service
+  name: backend-service-staging
 spec:
   selector:
-    app: backend
+    app: backend-staging
   ports:
     - name: http
       protocol: TCP
