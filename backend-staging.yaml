@@ -4,21 +4,21 @@ metadata:
   name: backend-deployment-staging
 spec:
   replicas: 1
-  template: 
+  template:
     metadata:
       labels:
         app: backend-staging
-    spec: 
+    spec:
       containers:
       - name: backend-container-staging
-        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-backend-staging:V_24
-        ports: 
+        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-backend-staging:V_39
+        ports:
         - name: backend-port
           containerPort: 8090
         resources:
             requests:
               cpu: 10m
-        env: 
+        env:
           - name: MAILCHIMP_API
             valueFrom:
               secretKeyRef:
@@ -44,6 +44,12 @@ spec:
               secretKeyRef:
                 name: secrets
                 key: MAILGUN_API_PUBlIC_KEY
+          - name: EASY_POST_KEY
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: EASY_POST_TEST_KEY
+
 ---
 
 
