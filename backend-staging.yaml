@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: backend-container-staging
-        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-backend-staging:V_39
+        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-backend-staging:V_40
         ports:
         - name: backend-port
           containerPort: 8090
@@ -49,6 +49,22 @@ spec:
               secretKeyRef:
                 name: secrets
                 key: EASY_POST_TEST_KEY
+          - name: TWILIO_ACCOUNT_SID
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: TWILIO_TEST_ACCOUNT_SID
+          - name: TWILIO_AUTH_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: TWILIO_TEST_AUTH_TOKEN
+          - name: TWILIO_PHONE_NUMBER
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: TWILIO_PHONE_NUMBER
+
 
 ---
 
