@@ -63,7 +63,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: secrets
-                key: TWILIO_PHONE_NUMBER
+                key: TWILIO_TEST_PHONE_NUMBER
 
 
 ---
