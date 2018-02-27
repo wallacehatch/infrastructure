@@ -19,7 +19,6 @@ kops edit cluster ${NAME}
 kops update cluster ${NAME} --yes
 
 # kubectl get nodes 
-
 # kubectl get pods
 
 
