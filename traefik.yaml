@@ -10,6 +10,7 @@ data:
     [entryPoints]
       [entryPoints.http]
       address = ":80"
+      compress = true
         [entryPoints.http.redirect]
         regex = "^http://(.*)"
         replacement = "https://$1"
