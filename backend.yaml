@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: backend-container
-        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-backend:V_60
+        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-backend:V_68
         ports:
         - name: backend-port
           containerPort: 8090
@@ -69,6 +69,16 @@ spec:
               secretKeyRef:
                 name: secrets
                 key: GOOGLE_URL_API
+          - name: MONGODB_URI
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: MONGODB_URI
+          - name: MONGODB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: MONGODB_NAME
 ---
 
 

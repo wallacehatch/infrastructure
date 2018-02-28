@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: backend-container-staging
-        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-backend-staging:V_66
+        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-backend-staging:V_67
         ports:
         - name: backend-port
           containerPort: 8090
@@ -74,11 +74,11 @@ spec:
               secretKeyRef:
                 name: secrets
                 key: MONGODB_URI_TEST
-            - name: MONGODB_NAME
-              valueFrom:
-                secretKeyRef:
-                  name: secrets
-                  key: MONGODB_NAME_TEST
+          - name: MONGODB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: MONGODB_NAME_TEST
 
 
 ---
