@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: backend-container
-        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-backend-staging:V_40
+        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-backend:V_60
         ports:
         - name: backend-port
           containerPort: 8090
@@ -64,6 +64,11 @@ spec:
               secretKeyRef:
                 name: secrets
                 key: TWILIO_PHONE_NUMBER
+          - name: GOOGLE_URL_API
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: GOOGLE_URL_API
 ---
 
 
