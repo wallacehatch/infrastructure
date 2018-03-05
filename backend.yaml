@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: backend-container
-        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-backend:V_68
+        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-backend:V_73
         ports:
         - name: backend-port
           containerPort: 8090
@@ -79,6 +79,11 @@ spec:
               secretKeyRef:
                 name: secrets
                 key: MONGODB_NAME
+          - name: INSTAGRAM_ACCESS_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: INSTAGRAM_ACCESS_TOKEN
 ---
 
 
