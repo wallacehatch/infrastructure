@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: backend-container-staging
-        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-backend-staging:V_82
+        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-backend-staging:V_101
         ports:
         - name: backend-port
           containerPort: 8090
@@ -33,7 +33,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: secrets
-                key: STRIPE_WEBHOOK_SIG
+                key: STRIPE_TEST_WEBHOOK_SIG
           - name: MAILGUN_API_SECRET_KEY
             valueFrom:
               secretKeyRef:

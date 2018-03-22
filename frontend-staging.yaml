@@ -11,10 +11,10 @@ spec:
     spec:
       containers:
       - name: frontend-container-staging
-        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-frontend-staging:V_11
+        image: 145054867171.dkr.ecr.us-east-1.amazonaws.com/wallace-hatch-frontend-staging:latest
         ports:
         - name: frontend-port
-          containerPort: 5000
+          containerPort: 3000
         resources:
               requests:
                 cpu: 10m

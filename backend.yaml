@@ -33,7 +33,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: secrets
-                key: STRIPE_WEBHOOK_SIG
+                key: STRIPE_LIVE_WEBHOOK_SIG
           - name: MAILGUN_API_SECRET_KEY
             valueFrom:
               secretKeyRef:
